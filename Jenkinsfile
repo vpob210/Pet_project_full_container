@@ -34,7 +34,6 @@ pipeline {
                     // Шаг для выполнения сборки Docker образа на удаленном сервере
                     sshagent(['ssh-pet-id']) {
                         sh 'ssh ${REMOTE_HOST} "cd ${PROJECT_FOLDER} && docker build -t vpob210/pet_web_full ."'
-                        // sh '${REMOTE_HOST} "docker rmi $(docker images | awk 'NR>1 {print $3}')"'
                     }
                 }
             }
@@ -44,9 +43,8 @@ pipeline {
                 script {
                     // Шаг для пуша собранного образа в DockerHub
                      sshagent(['ssh-pet-id', 'DOCKERHUB']) {
-                        sh " echo \$DOCKERHUB_USERNAME "
-                        // sh "ssh -t ${REMOTE_HOST} 'docker login -u \$DOCKERHUB_USERNAME -p \$DOCKERHUB_PASSWORD && docker push pet_web_full'"
                         sh "ssh ${REMOTE_HOST} 'docker push vpob210/pet_web_full:latest'"
+                        sh '${REMOTE_HOST} "docker rmi $(docker images | awk 'NR>1 {print $3}')"'
                      }
                 }
             }
