@@ -36,7 +36,7 @@ pipeline {
                 //         sh 'ssh ${REMOTE_HOST} "cd ${PROJECT_FOLDER} && docker build -t pet_web_full ."'
                 //         // sh '${REMOTE_HOST} "docker rmi $(docker images | awk 'NR>1 {print $3}')"'
                 //     }
-                // }
+                }
             }
         }
         stage('Push to DockerHub') {
