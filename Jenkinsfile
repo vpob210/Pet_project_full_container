@@ -45,7 +45,7 @@ pipeline {
                     // Шаг для пуша собранного образа в DockerHub
                      sshagent(['ssh-pet-id', 'DOCKERHUB']) {
                         sh ' echo $DOCKERHUB_USERNAME '
-                        sh 'ssh ${REMOTE_HOST} "docker login -u $DOCKERHUB_USERNAME -p %DOCKERHUB_PASSWORD && docker push pet_web_full"'
+                        sh 'ssh -t ${REMOTE_HOST} "docker login -u $DOCKERHUB_USERNAME -p %DOCKERHUB_PASSWORD && docker push pet_web_full"'
                         
                      }
                 }
