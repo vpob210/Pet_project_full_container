@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.header {
+    margin-left: 10px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    gap: 10px;
+    margin-left: 100px;
+
+    background-color: #fff; /* Добавляем фон для контейнера */
+    padding: 20px; /* Добавим отступы */
+    border-radius: 10px; /* Скруглим углы контейнера */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень для контейнера */
+}
+
+form {
+    text-align: center;
+}
+
+.button {
+    margin-left: 10px;
+}
+
+body h1 {
+    font-family: 'Pacifico', cursive;
+    color: #555; /* Цвет текста заголовка */
+    font-size: 2.5em; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+h3 {
+	color: #444;
+}
+
+h5 {
+    margin: 0;
+    color: #555;
+    font-family: 'Helvetica Neue', sans-serif; /* Пример шрифта, замените на свой выбор */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    color: #008000; /* Зеленый цвет для результатов поиска */
+}
