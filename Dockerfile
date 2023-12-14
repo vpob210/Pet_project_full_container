@@ -17,7 +17,10 @@ COPY ./nginx/default.conf /etc/nginx/sites-enabled/default
 #RUN echo "" > /etc/nginx/sites-enabled/default
 
 #Mysql
+---
 
+RUN a2enmod php8.1
+RUN rm -rf /var/www/html/*
 
 COPY ./www /var/www/html
 COPY ./apache/000-default.conf /etc/apache2/sites-available/000-default.conf
