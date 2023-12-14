@@ -46,7 +46,7 @@ pipeline {
                      sshagent(['ssh-pet-id', 'DOCKERHUB']) {
                         sh " echo \$DOCKERHUB_USERNAME "
                         // sh "ssh -t ${REMOTE_HOST} 'docker login -u \$DOCKERHUB_USERNAME -p \$DOCKERHUB_PASSWORD && docker push pet_web_full'"
-                        sh "ssh ${REMOTE_HOST} 'docker push docker push vpob210/pet_web_full:latest'"
+                        sh "ssh ${REMOTE_HOST} 'docker push vpob210/pet_web_full:latest'"
                      }
                 }
             }
