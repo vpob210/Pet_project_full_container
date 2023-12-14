@@ -33,14 +33,21 @@ pipeline {
                     }
                     // Шаг для выполнения сборки Docker образа на удаленном сервере
                     sshagent(['your-ssh-credentials-id']) {
-                        sh '${REMOTE_HOST} "cd ${PROJECT_FOLDER} && docker build -t pet_web ."'
+                        sh 'ssh ${REMOTE_HOST} "cd ${PROJECT_FOLDER} && docker build -t pet_web ."'
                         // sh '${REMOTE_HOST} "docker rmi $(docker images | awk 'NR>1 {print $3}')"'
                     }
-                    // sshagent(['your-ssh-credentials-id']) {
-                    //     sh '
-                    // }
                 }
             }
         }
+        // stage('Push to DockerHub') {
+        //     steps {
+        //         script {
+        //             // Шаг для пуша собранного образа в DockerHub
+        //              sshagent(['your-ssh-credentials-id']) {
+        //                 sh 'ssh ${REMOTE_HOST} "docker login -u DOCKERHUB_USERNAME -p DOCKERHUB_PASSWORD && docker push pet_web_full"'
+        //              }
+        //         }
+        //     }
+        // }
     }
 }
