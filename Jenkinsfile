@@ -7,6 +7,14 @@ pipeline {
     }
 
     stages {
+        stage('Check Workspace Content') {
+            steps {
+                script {
+                    // Вывести содержимое рабочей директории перед клонированием
+                    sh "ls -lah ${WORKSPACE}"
+                }
+            }
+        }
         stage('SSH and Wall') {
             steps {
                 script {
