@@ -24,4 +24,4 @@ P.S. Для работы с БД можно использовать docker volu
 mysqldump -u root todo_app > /var/lib/mysql/test_dump.sql
 mysql -u root todo_app < /var/lib/mysql/simple_app.sql
 
-Криво но работает :)
+Выглядит не красиво но работает :)
