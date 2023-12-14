@@ -13,4 +13,13 @@
 
 База и пользователь уже инициализированы.
 
-P.S. Пока не разобрался как сделать мапинг вольюма что бы база хранилась на хосте.
+P.S. Для работы с БД можно использовать docker volume create mysql_data
+    и запустить контейнер docker run --name pet_web -v mysql_data:/var/lib/mysql -p 80:80 -d pet_proj
+
+Дальше использовать докер вольюм для копирования дампов БД и восстановления из дампов.
+на хосте путь:
+/var/lib/docker/volumes/mysql_data/_data
+
+команды внутри контейнера:
+mysqldump -u root todo_app > /var/lib/mysql/test_dump.sql
+mysql -u root todo_app < /var/lib/mysql/simple_app.sql
