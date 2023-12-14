@@ -44,7 +44,7 @@ pipeline {
                     // Шаг для пуша собранного образа в DockerHub
                      sshagent(['ssh-pet-id']) {
                         sh "ssh ${REMOTE_HOST} 'docker push vpob210/pet_web_full:latest'"
-                        // sh '${REMOTE_HOST} "docker rmi $(docker images | awk 'NR>1 {print $3}')"'
+                        // sh '${REMOTE_HOST} "docker rmi \$(docker images | awk 'NR>1 {print $3}')"'
                         sh "ssh ${REMOTE_HOST} 'docker rmi \$(docker images -q)'"
                      }
                 }
