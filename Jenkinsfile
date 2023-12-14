@@ -31,6 +31,14 @@ pipeline {
                         """
                         sh rsync
                     }
+                    // Шаг для выполнения сборки Docker образа на удаленном сервере
+                    sshagent(['your-ssh-credentials-id']) {
+                        sh '${REMOTE_HOST} "cd ${PROJECT_FOLDER} && docker build -t pet_web ."'
+                        // sh '${REMOTE_HOST} "docker rmi $(docker images | awk 'NR>1 {print $3}')"'
+                    }
+                    // sshagent(['your-ssh-credentials-id']) {
+                    //     sh '
+                    // }
                 }
             }
         }
