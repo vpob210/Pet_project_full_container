@@ -35,7 +35,7 @@ form {
 
 body h1 {
     font-family: 'Pacifico', cursive;
-    color: #555; /* Цвет текста заголовка */
+    color: red; /* Цвет текста заголовка */
     font-size: 2.5em; /* Размер шрифта */
     font-weight: bold; /* Жирный шрифт */
 }
